@@ -192,7 +192,13 @@ Most of the claims we make about a running time or space bound involve a integer
 
 For any particular n>=1 there is a finite sequence of implications that start with something known to be true and ultimately leads to showing that q(n) is true.
 
-We begin a justification by induction by showing that q(n) is true for n=1 (and possibly some other values n=2,3...k for some constant k). Then we justify that the inductive step is true for n>k, namely we show "if q(n) is true for all j<n then q(n) is true", the combination of these two steps completes the justification by induction.
+We begin a justification by induction by showing that q(n) is true for n=1 (and possibly some other values n=2,3...k for some constant k). Then we justify that the inductive step is true for n \> k, namely we show if q(n) is true for all j \< n then q(n) is true, the combination of these two steps completes the justification by induction.
+
+<h3>Proving the Fibonacci sequence by induction</h3>
+
+We are trying to prove that F(n) \< 2^n, Let a Fibonacci sequence with an n > 2 be defined as: F(n) = F(n - 2) + F(n-1)
+
+![](Images/Fibonacci.png)
 
 __Loop invariants:__
 
@@ -203,3 +209,21 @@ To prove if some statement L about a loop is correct, define L in terms of a ser
 2. if L<sub>j-1</sub> is true before iteration j then L<sub>j</sub> will be true after iteration j.
 
 3. The final statement L<sub>k</sub> implies the desired statement L to be true
+
+```python
+def find(S, val):
+    """Return index j such that S[j] == val or -1 if no such element"""
+
+    n= len(S)
+    j = 0
+    while j < n:
+        if S[j] == val:
+            return j
+        j += i
+   return -1
+
+ ```
+
+ For Big Oh, the first elements in an iterable won't be equal to what we are trying to find. Therefore we can assume that the claim *val is not equal to any of the first j elements of S.*.
+s kind of a trivially true claim
+is said to hold **vacuously**
